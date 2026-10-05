@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Dulsha",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": -100.76, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -70.8,
+      "left": -63.4,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -35.7, "left": 74.2, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -74.4,
+      "left": -180.6,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "gas1:VCC", "esp:5V", "red", [ "h38.4", "v354.3", "h-364.8" ] ],
+    [ "gas1:GND", "esp:GND.3", "black", [ "h96", "v200.8" ] ],
+    [ "gas1:AOUT", "esp:34", "green", [ "h115.2", "v432", "h-441.6", "v-326.4" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v38.4", "h48.4" ] ],
+    [ "led1:A", "esp:23", "green", [ "v19.2", "h67.2", "v67.2" ] ],
+    [ "bz1:2", "esp:19", "green", [ "h47.6", "v-9.6", "h153.6", "v115.2" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
